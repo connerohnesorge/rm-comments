@@ -6,7 +6,7 @@ import * as fs from 'fs';
 function removeComments(filename: string): string {
   const content = fs.readFileSync(filename, 'utf8');
   
-  // Determine script kind based on extension
+  // Determine script kind based on extension for JSX handling
   let scriptKind = ts.ScriptKind.TS;
   if (filename.endsWith('.tsx')) {
     scriptKind = ts.ScriptKind.TSX;
@@ -15,15 +15,6 @@ function removeComments(filename: string): string {
   } else if (filename.endsWith('.js')) {
     scriptKind = ts.ScriptKind.JS;
   }
-
-  // Parse the source file using TypeScript compiler
-  const sourceFile = ts.createSourceFile(
-    filename,
-    content,
-    ts.ScriptTarget.Latest,
-    true,
-    scriptKind
-  );
 
   // Remove comments by transpiling with removeComments option
   const result = ts.transpileModule(content, {

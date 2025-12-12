@@ -21,7 +21,7 @@ func processGoFile(filename string, content []byte) (string, error) {
 	// Print the AST back to source code
 	var buf bytes.Buffer
 	cfg := printer.Config{
-		Mode:     printer.TabIndent | printer.UseSpaces,
+		Mode:     printer.TabIndent,
 		Tabwidth: 8,
 	}
 	
