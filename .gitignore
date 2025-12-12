@@ -2,11 +2,14 @@
 /bin/
 /dist/
 /build/
-/target/
+target/
+rm-comments
 
 # Dependencies
 node_modules/
 vendor/
+Cargo.lock
+package-lock.json
 
 # Language specific
 __pycache__/
