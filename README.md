@@ -30,10 +30,33 @@ nix build
 nix run . -- <file>
 ```
 
-### Development
+### Using Make
 
 ```bash
+# Build all backends and main CLI
+make all
+
+# Run tests
+make test
+
+# Install to system
+sudo make install
+
+# Clean build artifacts
+make clean
+```
+
+### Development
+
+With Nix:
+```bash
 nix develop
+```
+
+Without Nix:
+```bash
+# Ensure you have Go, Node.js, Python 3, and Rust/Cargo installed
+make all
 ```
 
 ## Usage
@@ -71,6 +94,20 @@ The project consists of:
 5. **Rust Backend** (`backends/rust/`): Syn parser integration
 
 Each backend is implemented using the language's own parsing tools to ensure accuracy and proper handling of edge cases.
+
+## Technical Details
+
+### Go Backend
+Uses Go's `go/parser` package to parse source files into an Abstract Syntax Tree (AST), then uses `go/printer` to regenerate the code without comments. By not including the `parser.ParseComments` flag, comments are automatically excluded from the AST.
+
+### TypeScript/JavaScript Backend
+Uses the TypeScript Compiler API's `transpileModule` function with the `removeComments: true` option. This leverages TypeScript's sophisticated understanding of JavaScript/TypeScript syntax to safely remove all comment types while preserving code semantics.
+
+### Python Backend
+Uses Python's built-in `tokenize` module, which is the same tokenizer used by the Python interpreter. It filters out `COMMENT` tokens while preserving all other tokens, ensuring perfect compatibility with Python's syntax rules.
+
+### Rust Backend
+Uses the `syn` crate, Rust's de-facto standard parsing library (used by procedural macros). The parsed AST is converted back to tokens using `quote::ToTokens`, which automatically excludes comments. The output is then formatted with `rustfmt` for readability.
 
 ## Building Backends
 

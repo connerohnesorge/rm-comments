@@ -26,24 +26,22 @@
               python3
               rustc
               cargo
-            ];
-            
-            buildInputs = with pkgs; [
-              nodejs
-              python3
-              rustc
+              rustfmt
             ];
             
             preBuild = ''
+              # Create bin directory
+              mkdir -p bin
+              
               # Build TypeScript backend
               cd backends/typescript
-              ${pkgs.nodejs}/bin/npm install
-              ${pkgs.nodejs}/bin/npm run build
+              npm install
+              npm run build
               cd ../..
               
               # Build Rust backend
               cd backends/rust
-              ${pkgs.cargo}/bin/cargo build --release
+              cargo build --release
               cp target/release/rust-rm-comments ../../bin/
               cd ../..
             '';
@@ -53,14 +51,18 @@
               mkdir -p $out/libexec/rm-comments
               
               # Copy TypeScript backend
-              cp -r backends/typescript/dist $out/libexec/rm-comments/typescript
-              cp backends/typescript/package.json $out/libexec/rm-comments/typescript/
+              mkdir -p $out/libexec/rm-comments/typescript
+              cp -r backends/typescript/dist/* $out/libexec/rm-comments/typescript/
               
               # Copy Python backend  
               cp backends/python/python_rm_comments.py $out/libexec/rm-comments/
+              chmod +x $out/libexec/rm-comments/python_rm_comments.py
               
               # Copy Rust backend
-              cp bin/rust-rm-comments $out/libexec/rm-comments/ || true
+              if [ -f bin/rust-rm-comments ]; then
+                cp bin/rust-rm-comments $out/libexec/rm-comments/
+                chmod +x $out/libexec/rm-comments/rust-rm-comments
+              fi
             '';
           };
         };
@@ -72,8 +74,10 @@
             python3
             rustc
             cargo
+            rustfmt
             nixpkgs-fmt
           ];
         };
       });
 }
+
