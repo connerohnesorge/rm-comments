@@ -1,0 +1,30 @@
+# Build artifacts
+/bin/
+/dist/
+/build/
+/target/
+
+# Dependencies
+node_modules/
+vendor/
+
+# Language specific
+__pycache__/
+*.pyc
+*.so
+*.o
+*.a
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Test files
+*.test
+*.out
+
+# Nix
+result
+result-*
