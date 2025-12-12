@@ -1,0 +1,17 @@
+{
+  "name": "typescript-rm-comments",
+  "version": "0.1.0",
+  "description": "TypeScript comment removal backend using TypeScript Compiler API",
+  "main": "dist/index.js",
+  "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js"
+  },
+  "dependencies": {
+    "typescript": "^5.3.3"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.5"
+  }
+}

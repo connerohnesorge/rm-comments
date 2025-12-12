@@ -1,0 +1,33 @@
+# Build artifacts
+/bin/
+/dist/
+/build/
+target/
+rm-comments
+
+# Dependencies
+node_modules/
+vendor/
+Cargo.lock
+package-lock.json
+
+# Language specific
+__pycache__/
+*.pyc
+*.so
+*.o
+*.a
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Test files
+*.test
+*.out
+
+# Nix
+result
+result-*

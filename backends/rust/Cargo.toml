@@ -1,0 +1,13 @@
+[package]
+name = "rust-rm-comments"
+version = "0.1.0"
+edition = "2021"
+
+[[bin]]
+name = "rust-rm-comments"
+path = "src/main.rs"
+
+[dependencies]
+proc-macro2 = "1.0"
+quote = "1.0"
+syn = { version = "2.0", features = ["full", "extra-traits"] }
