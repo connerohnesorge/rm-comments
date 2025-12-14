@@ -1,0 +1,167 @@
+{
+  "version": 1,
+  "tasks": [
+    {
+      "id": "1.1",
+      "section": "CLI Framework Setup",
+      "description": "Replace placeholder CLI structure with proper Kong subcommand architecture",
+      "status": "completed"
+    },
+    {
+      "id": "1.2",
+      "section": "CLI Framework Setup",
+      "description": "Define global flags struct (recursive, dry-run, verbose, include, exclude, remove-directives)",
+      "status": "completed"
+    },
+    {
+      "id": "1.3",
+      "section": "CLI Framework Setup",
+      "description": "Define Go subcommand struct with path arguments",
+      "status": "completed"
+    },
+    {
+      "id": "1.4",
+      "section": "CLI Framework Setup",
+      "description": "Implement exit code handling (0=success, 1=error, 2=misuse)",
+      "status": "completed"
+    },
+    {
+      "id": "2.1",
+      "section": "Go Comment Removal Core",
+      "description": "Create Go comment removal package using `go/ast` and `go/parser`",
+      "status": "completed"
+    },
+    {
+      "id": "2.2",
+      "section": "Go Comment Removal Core",
+      "description": "Implement single-line comment (`//`) removal",
+      "status": "completed"
+    },
+    {
+      "id": "2.3",
+      "section": "Go Comment Removal Core",
+      "description": "Implement multi-line comment (`/* */`) removal",
+      "status": "completed"
+    },
+    {
+      "id": "2.4",
+      "section": "Go Comment Removal Core",
+      "description": "Implement directive detection and preservation logic (//go:build, //go:generate, // +build, etc.)",
+      "status": "completed"
+    },
+    {
+      "id": "2.5",
+      "section": "Go Comment Removal Core",
+      "description": "Preserve file formatting (indentation, spacing) after comment removal",
+      "status": "completed"
+    },
+    {
+      "id": "3.1",
+      "section": "File Processing",
+      "description": "Implement single file processing",
+      "status": "completed"
+    },
+    {
+      "id": "3.2",
+      "section": "File Processing",
+      "description": "Implement recursive directory traversal with `-r` flag",
+      "status": "completed"
+    },
+    {
+      "id": "3.3",
+      "section": "File Processing",
+      "description": "Implement include/exclude glob pattern filtering",
+      "status": "completed"
+    },
+    {
+      "id": "3.4",
+      "section": "File Processing",
+      "description": "Implement default directory exclusions (.git, vendor, node_modules, .direnv)",
+      "status": "completed"
+    },
+    {
+      "id": "3.5",
+      "section": "File Processing",
+      "description": "Implement stdin/stdout mode with `-` path argument",
+      "status": "completed"
+    },
+    {
+      "id": "3.6",
+      "section": "File Processing",
+      "description": "Preserve file permissions when rewriting",
+      "status": "completed"
+    },
+    {
+      "id": "4.1",
+      "section": "Output Modes",
+      "description": "Implement silent mode (default behavior)",
+      "status": "completed"
+    },
+    {
+      "id": "4.2",
+      "section": "Output Modes",
+      "description": "Implement verbose mode (`-v`) showing modified file paths",
+      "status": "completed"
+    },
+    {
+      "id": "4.3",
+      "section": "Output Modes",
+      "description": "Implement dry-run mode (`-n`) showing diff preview",
+      "status": "completed"
+    },
+    {
+      "id": "5.1",
+      "section": "Error Handling",
+      "description": "Implement fail-fast on parse errors",
+      "status": "completed"
+    },
+    {
+      "id": "5.2",
+      "section": "Error Handling",
+      "description": "Add proper error messages to stderr",
+      "status": "completed"
+    },
+    {
+      "id": "5.3",
+      "section": "Error Handling",
+      "description": "Handle missing files, permission errors gracefully",
+      "status": "completed"
+    },
+    {
+      "id": "6.1",
+      "section": "Testing",
+      "description": "Create test fixtures in `testdata/` directory with various Go comment patterns",
+      "status": "completed"
+    },
+    {
+      "id": "6.2",
+      "section": "Testing",
+      "description": "Write table-driven unit tests for comment removal logic",
+      "status": "completed"
+    },
+    {
+      "id": "6.3",
+      "section": "Testing",
+      "description": "Write integration tests for CLI behavior",
+      "status": "completed"
+    },
+    {
+      "id": "6.4",
+      "section": "Testing",
+      "description": "Test directive preservation scenarios (//go:* pattern matching)",
+      "status": "completed"
+    },
+    {
+      "id": "6.5",
+      "section": "Testing",
+      "description": "Test stdin/stdout mode",
+      "status": "completed"
+    },
+    {
+      "id": "6.6",
+      "section": "Testing",
+      "description": "Test unchanged file skip behavior",
+      "status": "completed"
+    }
+  ]
+}
