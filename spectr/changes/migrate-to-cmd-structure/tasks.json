@@ -1,0 +1,131 @@
+{
+  "version": 1,
+  "tasks": [
+    {
+      "id": "1.1",
+      "section": "Create Package Structure",
+      "description": "Create `cmd/` directory",
+      "status": "pending"
+    },
+    {
+      "id": "1.2",
+      "section": "Create Package Structure",
+      "description": "Create `internal/golang/` directory",
+      "status": "pending"
+    },
+    {
+      "id": "2.1",
+      "section": "Extract Comment Removal Logic",
+      "description": "Move `removeComments` and `removeCommentsFromSource` to `internal/golang/strip.go`",
+      "status": "pending"
+    },
+    {
+      "id": "2.2",
+      "section": "Extract Comment Removal Logic",
+      "description": "Move `isDirective` to `internal/golang/strip.go`",
+      "status": "pending"
+    },
+    {
+      "id": "2.3",
+      "section": "Extract Comment Removal Logic",
+      "description": "Move `generateDiff` to `internal/golang/diff.go`",
+      "status": "pending"
+    },
+    {
+      "id": "2.4",
+      "section": "Extract Comment Removal Logic",
+      "description": "Export necessary functions with clear API",
+      "status": "pending"
+    },
+    {
+      "id": "3.1",
+      "section": "Create cmd/root.go",
+      "description": "Define `GlobalFlags` struct in `cmd/root.go`",
+      "status": "pending"
+    },
+    {
+      "id": "3.2",
+      "section": "Create cmd/root.go",
+      "description": "Define `CLI` struct embedding global flags and subcommands",
+      "status": "pending"
+    },
+    {
+      "id": "3.3",
+      "section": "Create cmd/root.go",
+      "description": "Define exit code constants",
+      "status": "pending"
+    },
+    {
+      "id": "3.4",
+      "section": "Create cmd/root.go",
+      "description": "Define `defaultExcludeDirs` slice",
+      "status": "pending"
+    },
+    {
+      "id": "4.1",
+      "section": "Create cmd/go.go",
+      "description": "Define `GoCmd` struct for the go subcommand",
+      "status": "pending"
+    },
+    {
+      "id": "4.2",
+      "section": "Create cmd/go.go",
+      "description": "Move `runGo` function as `Run` method on `GoCmd`",
+      "status": "pending"
+    },
+    {
+      "id": "4.3",
+      "section": "Create cmd/go.go",
+      "description": "Move `processStdin`, `processDirectory`, `processFile` functions",
+      "status": "pending"
+    },
+    {
+      "id": "4.4",
+      "section": "Create cmd/go.go",
+      "description": "Move `shouldInclude`, `shouldExclude` helper functions",
+      "status": "pending"
+    },
+    {
+      "id": "5.1",
+      "section": "Simplify main.go",
+      "description": "Reduce `main.go` to imports, `main()`, and `run()` functions only",
+      "status": "pending"
+    },
+    {
+      "id": "5.2",
+      "section": "Simplify main.go",
+      "description": "Import `cmd` package and use `cmd.CLI` and `cmd.Run`",
+      "status": "pending"
+    },
+    {
+      "id": "6.1",
+      "section": "Verify Functionality",
+      "description": "Run `go build` to verify compilation",
+      "status": "pending"
+    },
+    {
+      "id": "6.2",
+      "section": "Verify Functionality",
+      "description": "Test `rm-comments go` subcommand with existing testdata",
+      "status": "pending"
+    },
+    {
+      "id": "6.3",
+      "section": "Verify Functionality",
+      "description": "Test recursive flag `-r`",
+      "status": "pending"
+    },
+    {
+      "id": "6.4",
+      "section": "Verify Functionality",
+      "description": "Test dry-run flag `-n`",
+      "status": "pending"
+    },
+    {
+      "id": "6.5",
+      "section": "Verify Functionality",
+      "description": "Test stdin mode with `-`",
+      "status": "pending"
+    }
+  ]
+}
