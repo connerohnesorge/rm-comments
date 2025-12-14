@@ -10,6 +10,7 @@ import (
 	"io"
 	"os"
 	"path/filepath"
+	"slices"
 	"strings"
 
 	"github.com/alecthomas/kong"
@@ -138,10 +139,8 @@ func processDirectory(dir string, flags GlobalFlags) error {
 		// Skip excluded directories
 		if d.IsDir() {
 			name := d.Name()
-			for _, excluded := range defaultExcludeDirs {
-				if name == excluded {
-					return filepath.SkipDir
-				}
+			if slices.Contains(defaultExcludeDirs, name) {
+				return filepath.SkipDir
 			}
 			// Check custom exclude patterns on directory
 			if shouldExclude(name, flags.Exclude) {
@@ -341,10 +340,7 @@ func generateDiff(path string, original, modified []byte) string {
 	modLines := strings.Split(string(modified), "\n")
 
 	// Simple line-by-line diff
-	maxLines := len(origLines)
-	if len(modLines) > maxLines {
-		maxLines = len(modLines)
-	}
+	maxLines := max(len(modLines), len(origLines))
 
 	inHunk := false
 	hunkStart := 0
