@@ -11,8 +11,14 @@ stop:
     - run: "nix develop -c lint"
       showStdout: true
       showStderr: true
-      message: "Linting failed, please fix."
+      message: "Linting (nix develop -c lint) failed, please fix the failures."
       maxOutputLines: 100
+    - run: "nix develop -c tests"
+      showStdout: false
+      showStderr: false
+      message: "Tests (nix develop -c tests) failed, please fix the failures."
+      maxOutputLines: 100
+      timeout: 300
     - run: "spectr validate --all --strict"
       showStdout: true
       showStderr: true
